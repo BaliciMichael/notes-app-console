@@ -2,6 +2,7 @@ package controllers
 
 import models.Note
 import org.junit.jupiter.api.AfterEach
+import org.junit.jupiter.api.Assertions.assertFalse
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Nested
@@ -85,6 +86,26 @@ class NoteAPITest {
             assertTrue(notesString.contains("swim"))
             assertTrue(notesString.contains("summer holiday"))
         }
+    }
+    @Test
+    fun `listArchivedNotes returns Archived Notes in ArrayList`() {
+        assertEquals(5, populatedNotes!!.numberOfNotes())
+        val notesString = populatedNotes!!.listArchivedNotes().lowercase()
+        assertFalse(notesString.contains("learning kotlin"))
+        assertFalse(notesString.contains("code app"))
+        assertFalse(notesString.contains("test app"))
+        assertFalse(notesString.contains("swim"))
+        assertFalse(notesString.contains("summer holiday"))
+    }
+    @Test
+    fun `listActiveNotes returns Active notes in ArrayList`() {
+        assertEquals(5, populatedNotes!!.numberOfNotes())
+        val notesString = populatedNotes!!.listActiveNotes().lowercase()
+        assertTrue(notesString.contains("learning kotlin"))
+        assertTrue(notesString.contains("code app"))
+        assertTrue(notesString.contains("test app"))
+        assertTrue(notesString.contains("swim"))
+        assertTrue(notesString.contains("summer holiday"))
     }
 
 }
