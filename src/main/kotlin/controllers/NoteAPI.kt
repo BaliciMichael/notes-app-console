@@ -112,5 +112,23 @@ class NoteAPI {
             notes.removeAt(indexToDelete)
         } else null
     }
+    fun updateNote(indexToUpdate: Int, note: Note?): Boolean {
+
+        val foundNote = findNote(indexToUpdate)
+
+
+        if ((foundNote != null) && (note != null)) {
+            foundNote.noteTitle = note.noteTitle
+            foundNote.notePriority = note.notePriority
+            foundNote.noteCategory = note.noteCategory
+            return true
+        }
+
+
+        return false
+    }
+    fun isValidIndex(index: Int) :Boolean{
+        return isValidListIndex(index, notes);
+    }
 
 }
