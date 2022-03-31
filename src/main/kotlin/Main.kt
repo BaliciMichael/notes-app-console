@@ -10,7 +10,7 @@ import java.io.File
 import java.lang.System.exit
 
 private val logger = KotlinLogging.logger {}
-private val noteAPI = NoteAPI(JSONSerializer(File("notes.json")))
+private val noteAPI = NoteAPI(JSONSerializer(File("notes.yml")))
 
 
 fun main(args: Array<String>) {
