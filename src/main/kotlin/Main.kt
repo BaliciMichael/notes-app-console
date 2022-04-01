@@ -81,7 +81,7 @@ fun listNotes() {
             1 -> listAllNotes();
             2 -> listActiveNotes();
             3 -> listArchivedNotes();
-            else -> println("Invalid option entered: " + option);
+            else -> println("Invalid number entered: " + option);
         }
     } else {
         println("Option Invalid - No notes stored");
