@@ -12,4 +12,5 @@ Test driven development
 - Delete Notes
 - Save Notes
 - Load Notes
-
+- validation for note priority
+- 
